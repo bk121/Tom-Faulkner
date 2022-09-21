@@ -1,6 +1,6 @@
+import sys
 from flask import Flask, request
-# from generate_response import process 
-import generate_response
+from backend.generate_response import process 
 
 
   
@@ -16,8 +16,7 @@ def index():
 @app.route('/data', methods=['GET'])
 def get_time():
     email=request.args['email']
-    # response=process(email)
-    response="there"
+    response=process(email)
     return {'text': response}
 
   
