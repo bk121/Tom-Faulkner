@@ -1,5 +1,7 @@
 from flask import Flask, request
 # from generate_response import process 
+import generate_response
+
   
   
 app = Flask(__name__, static_folder='../frontend/build', static_url_path='/')
