@@ -1,5 +1,5 @@
 from flask import Flask, request
-from generate_response import process 
+# from generate_response import process 
   
   
 app = Flask(__name__, static_folder='../frontend/build', static_url_path='/')
@@ -13,7 +13,8 @@ def index():
 @app.route('/data', methods=['GET'])
 def get_time():
     email=request.args['email']
-    response=process(email)
+    # response=process(email)
+    response="there"
     return {'text': response}
 
   
