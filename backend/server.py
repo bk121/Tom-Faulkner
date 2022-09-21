@@ -4,11 +4,14 @@ from generate_response import process
   
 x = datetime.datetime.now()
   
-# Initializing flask app
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../frontend/build', static_url_path='/')
+
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
   
   
-# Route for seeing data
 @app.route('/data', methods=['GET'])
 def get_time():
     email=request.args['email']
