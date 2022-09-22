@@ -33,11 +33,11 @@ def process(email):
         return ""
     try:
         data=json.loads(email)
-        new_df=None
-        if data['tradeRetail']=='retail':
-            new_df = df_uk_dining_retail[(df_uk_dining_retail['model'].str.contains(pat=data['model'])) & (df_uk_dining_retail['shape']==data['shape']) & (df_uk_dining_retail['size']==data['size'])]
-        elif data['tradeRetail']=='trade':
-            new_df = df_uk_dining_trade[(df_uk_dining_trade['model'].str.contains(pat=data['model'])) & (df_uk_dining_trade['shape']==data['shape']) & (df_uk_dining_trade['size']==data['size'])]
+        if data['country']=='UK':
+            if data['tradeRetail']=='retail':
+                new_df = df_uk_dining_retail[(df_uk_dining_retail['model'].str.contains(pat=data['model'])) & (df_uk_dining_retail['shape']==data['shape']) & (df_uk_dining_retail['size']==data['size'])]
+            elif data['tradeRetail']=='trade':
+                new_df = df_uk_dining_trade[(df_uk_dining_trade['model'].str.contains(pat=data['model'])) & (df_uk_dining_trade['shape']==data['shape']) & (df_uk_dining_trade['size']==data['size'])]
         return tabulate(new_df, showindex=False, headers=new_df.columns, maxcolwidths=[None, None, None, None, None, 30, 50, None])
     except Exception as e:
         print(e)
