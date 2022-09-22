@@ -3,6 +3,7 @@ import pandas as pd
 from pandas import DataFrame
 from tabulate import tabulate
 from dotenv import load_dotenv
+import json
 import sys
 import os
 
@@ -18,19 +19,19 @@ CONNECTION_STRING = "mongodb+srv://"+username+":"+password+"@cluster0.1zo8noj.mo
 client = pymongo.MongoClient(CONNECTION_STRING)
 
 db = client["TF"]
-col = db["UK_dining_retail"]
-item_details = col.find()
-df = DataFrame(item_details).drop('_id', axis=1)
+uk_dining_retail = db["UK_dining_retail"]
+item_details = uk_dining_retail.find()
+df_uk_dining_retail = DataFrame(item_details).drop('_id', axis=1)
 
 
 def process(email):
     if email=="":
         return ""
     try:
-        values = email.split()
-        new_df = df[(df['model']== values[0]) & (df['shape']==values[1]) & (df['size']==values[2])]
-        # new_df=new_df.drop('notes', axis=1)
+        data=json.loads(email)
+        new_df = df_uk_dining_retail[(df_uk_dining_retail['model']== data['model']) & (df_uk_dining_retail['shape']==data['shape']) & (df_uk_dining_retail['size']==data['size'])]
         return tabulate(new_df, showindex=False, headers=new_df.columns, maxcolwidths=[None, None, None, None, None, 30, 50, None])
-    except:
+    except Exception as e:
+        print(e)
         return "Please enter valid format"
 

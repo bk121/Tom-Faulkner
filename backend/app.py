@@ -2,9 +2,6 @@ import sys
 from flask import Flask, request
 from backend.generate_response import process 
 
-
-  
-  
 app = Flask(__name__, static_folder='../frontend/build', static_url_path='/')
 
 
@@ -17,7 +14,7 @@ def index():
 def get_time():
     email=request.args['email']
     response=process(email)
-    return {'text': response}
+    return {'text': response} 
 
   
       
