@@ -13,9 +13,18 @@ export const furnitureOptions = [
 ]
 export const modelOptions = [
     { key: 'an', value: 'Angel',  text: 'Angel' },
-    { key: 'ar', value: 'Arial',  text: 'Arial' },
+    { key: 'ar', value: 'Ariel',  text: 'Ariel' },
     { key: 'at', value: 'Atlantic',  text: 'Atlantic' },
     { key: 'av', value: 'AVA',  text: 'AVA' },
+    { key: 'av', value: 'Avalon',  text: 'Avalon' },
+    { key: 'av', value: 'Avebury',  text: 'Avebury' },
+    { key: 'av', value: 'Capricorn',  text: 'Capricorn' },
+    { key: 'av', value: 'Echo',  text: 'Echo' },
+    { key: 'av', value: 'Edge',  text: 'Edge' },
+    { key: 'av', value: 'Exe',  text: 'Exe' },
+    { key: 'av', value: 'Papillon',  text: 'Papillon' },
+    { key: 'av', value: 'Phoenix',  text: 'Phoenix' },
+    { key: 'av', value: 'Vienna',  text: 'Vienna' }
 ]
 export const shapeOptions = [
     { key: 'ro', value: 'Round',  text: 'Round' },
